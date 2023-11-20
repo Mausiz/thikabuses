@@ -1,0 +1,41 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .slide-item {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dot.active {
+    background-color: #555;
+  }
+
+.home-page-container {
+  background-image: url("../Images/profile1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+}

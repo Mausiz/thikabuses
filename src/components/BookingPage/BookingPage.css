@@ -1,0 +1,14 @@
+.Page__Wrapper{
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    min-height: 100vh;
+    min-width: 1400px;
+    outline: 1px dotted;
+}
+.Page__Booking-options{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
