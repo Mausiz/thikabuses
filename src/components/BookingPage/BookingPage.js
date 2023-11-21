@@ -1,4 +1,114 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Nav from '../Nav/Nav';
+import './BookingPage.css';
+
+const BookingPage = () => {
+  const [boardingStage, setBoardingStage] = useState('');
+  const [alightingStage, setAlightingStage] = useState('');
+  const [numSeats, setNumSeats] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(null);
+
+  const stages = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+  const calculateTotalPrice = () => {
+    const distanceMap = {
+      'A-B': 5,
+      'B-C': 3,
+      'C-D': 4,
+      'D-E': 10,
+      'E-F': 3,
+    };
+
+    const distanceKey = `${boardingStage}-${alightingStage}`;
+    const distance = distanceMap[distanceKey];
+    const priceRate = 2.5;
+    const total = (distance || 0) * priceRate * numSeats;
+    setTotalPrice(total.toFixed(2)); // Rounded to 2 decimal places
+  };
+
+  const handleBooking = () => {
+    //logic to submit the entry to MongoDB
+    //API call to a server that interacts with MongoDB(Not yet integrated)
+    if (boardingStage && alightingStage && numSeats > 0 && totalPrice) {
+      // Booking and submission logic
+      console.log('Booking submitted:', { boardingStage, alightingStage, numSeats, totalPrice });
+    } else {
+      alert('Please fill in all the required fields.');
+    }
+  };
+
+  return (
+    <div className="booking-page-container">
+      <Nav />
+      <div className="booking-sections">
+        <div className="small-section">
+          {/* Smaller section */}
+          <h2>Available Buses</h2>
+          <li>Super metro</li>
+          <li>Virginia</li>
+          <li>Kensilver</li>
+          <li>Roam Rapid</li>
+          <li>Nicco</li>
+        </div>
+        <div className="large-section">
+          {/* Larger section */}
+          <h2>Booking Form</h2>
+          <div className="booking-form">
+            <label>
+              Boarding Stage:
+              <select value={boardingStage} onChange={(e) => setBoardingStage(e.target.value)}>
+                <option value="">Select Stage</option>
+                {stages.map((stage) => (
+                  <option key={stage} value={stage}>
+                    {stage}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Alighting Stage:
+              <select value={alightingStage} onChange={(e) => setAlightingStage(e.target.value)}>
+                <option value="">Select Stage</option>
+                {stages.map((stage) => (
+                  <option key={stage} value={stage}>
+                    {stage}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              Number of Seats:
+              <input
+                type="number"
+                value={numSeats}
+                onChange={(e) => setNumSeats(Math.max(1, parseInt(e.target.value, 10)))}
+              />
+            </label>
+
+            <button onClick={calculateTotalPrice}>Calculate Total Price</button>
+
+            {totalPrice !== null && (
+              <div className="total-price">
+                Total Price: KES {totalPrice}
+              </div>
+            )}
+
+            <button onClick={handleBooking} disabled={!boardingStage || !alightingStage || numSeats <= 0 || totalPrice === null}>
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BookingPage;
+
+
+/*import React, { useState } from "react";
 import './BookingPage.css';
 import Nav from '../Nav/Nav';
 
@@ -78,7 +188,7 @@ export default function BookingPage() {
                 <p>Selected Stage: {bookingDetails.stageChoice}</p>
                 <p className="Price">Unit Price: {bookingDetails.price}</p>
                 <span>
-                    <p>Pick Up Point</p>
+                    <p>Board</p>
                     <select
                         name="pickUpPoint"
                         value={bookingDetails.pickUpPoint}
@@ -97,7 +207,7 @@ export default function BookingPage() {
                     </select>
                 </span>
                 <span>
-                    <p>Drop Off Point</p>
+                    <p>Alight</p>
                     <select
                         name="dropOffPoint"
                         value={bookingDetails.dropOffPoint}
@@ -123,4 +233,4 @@ export default function BookingPage() {
         </div>
         </div>
     );
-}
+}*/
