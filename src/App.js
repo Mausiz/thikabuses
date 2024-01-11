@@ -6,6 +6,7 @@ import HomePage from './components/HomePage/HomePage';
 import Login from './components/Login/Login';
 import BookingPage from './components/BookingPage/BookingPage';
 
+
 export default function App() {
     return (
         <div>

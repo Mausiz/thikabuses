@@ -16,7 +16,7 @@ function Login() {
     };
 
     const submitForm = () => {
-        const { username, password } = formData;
+        const { User_Email, password } = formData;
 
         // Password validation
         if (password.length < 8 || password.length > 12) {
@@ -24,7 +24,7 @@ function Login() {
             return;
         }
 
-        console.log("Username:", username);
+        console.log("Email:", User_Email);
         console.log("Password:", password);
 
         //code for sending the login data to the server
@@ -37,12 +37,12 @@ function Login() {
             <div className="login-container">
             <h2>Login</h2>
             <form>
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="User_Email">Email:</label>
                 <input
                     type="text"
-                    id="username"
-                    name="username"
-                    value={formData.username}
+                    id="User_Email"
+                    name="User_Email"
+                    value={formData.User_Email}
                     onChange={handleChange}
                     required
                 />

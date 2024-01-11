@@ -17,6 +17,7 @@ const Nav = () => {
                 <a href="../HomePage">Home</a>
                 <a href="../Login">Login</a>
                 <a href="../BookingPage">Bus Schedule</a>
+
             </div>
             <div className="hamburger" onClick={toggleHamburger}>
                 <div className={`bar ${isHamburgerOpen ? 'open' : ''}`} />

@@ -35,10 +35,10 @@ const HomePage = () => {
       <div className="slider-container">
         <Slider {...settings}>
           <div className="slide-item">
-            <img src="../Images/profile1.jpg" /*alt="@"*/ />
+            <img src="../Images/profile1.jpg" alt="@" />
           </div>
           <div className="slide-item">
-            <img src="../Images/Screenshot (2).png" /*alt="$"*/ />
+            <img src="../Images/Screenshot (2).png" alt="$" />
           </div>
         </Slider>
         <div className="dots-container">
