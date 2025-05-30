@@ -1,3 +1,6 @@
+# This is a prototype project for a bus booking system. This only involves the client side and lacks the backend.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
